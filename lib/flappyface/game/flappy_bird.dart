@@ -6,6 +6,7 @@ import 'package:flame/game.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
 import '../components/background_component.dart';
 import '../components/bird_component.dart';
 import '../components/bottomtube_component.dart';
@@ -65,6 +66,13 @@ class FlappyBird extends FlameGame with HasTappables, HasCollisionDetection {
 
     // Game Paused
     if (isGamePaused) return;
+
+       // face
+    if (changer.isFlappyHeadUp) {
+      changer.isFlappyHeadUp= false;
+      changer.notify();
+      bird.position.y -= 70;
+    }
   }
 
   void reset() {

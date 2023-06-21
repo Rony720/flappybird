@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "/Users/rony/Desktop/final/flappybird/linux"
+  "cmake.sourceDirectory": "/Users/rony/Desktop/final/flappybird/linux",
+  "java.configuration.updateBuildConfiguration": "interactive"
 }

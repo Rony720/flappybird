@@ -3,6 +3,7 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flappybird/flappyface/game/flappy_bird.dart';
 
+import '../../main.dart';
 import 'bird_component.dart';
 import 'bottomtube_component.dart';
 import 'dart:math';
@@ -61,19 +62,20 @@ class ToptubeComponent extends SpriteComponent with HasGameRef<FlappyBird> {
 
       // Adding new tubes
       midWay = true;
-      var list1 = [-.10, .10, .20, .30, .40, .50, .70]; // Gaps
+      var list1 = [.10, .20, .30, .40, .50]; // Gaps
 
-      Random random = Random();
-      int randomValue = random.nextInt(list1.length);
+      // Random random = Random();
+      // int randomValue = random.nextInt(list1.length);
 
       // x + y = 0.60
-      double x = list1[randomValue];
+  
+      double x = list1[changer.currentBar];
       double y = 0.60 - x;
+
+      changer.currentBar = (changer.currentBar + 1) % list1.length;
 
       gameRef.add(ToptubeComponent(x));
       gameRef.add(BottomtubeComponent(y));
-
-      
     }
 
     if (position.x < (0 - screenWidth * 0.10)) {
